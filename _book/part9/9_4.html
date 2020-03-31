@@ -1,0 +1,1565 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>9.4 现实世界中的MVC模式 · MXY's Python Design Patterns Note</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="MXY">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="9_5.html" />
+    
+    
+    <link rel="prev" href="9_3.html" />
+    
+
+    
+        <link rel="shortcut icon" href='../source/images/favicon.jpg' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../source/images/favicon.jpg' type="image/x-icon">
+    
+    
+        <link rel="apple-touch-icon" href='../source/images/apple-touch-icon.jpg'>
+    
+    
+        
+        <link rel="apple-touch-icon" sizes="120x120" href="../source/images/apple-touch-icon.jpg">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="../source/images/apple-touch-icon.jpg">
+        
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"xianyuemeng","repo":"learningPythonDesignPatternsMxy","type":"star","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/xianyuemeng/learningPythonDesignPatternsMxy" target="_blank" class="custom-link">gitbug地址</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../part1/">
+            
+                <a href="../part1/">
+            
+                    
+                    第1章 设计模式简介
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../part1/1_1.html">
+            
+                <a href="../part1/1_1.html">
+            
+                    
+                    1.1 理解面向对象编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../part1/1_2.html">
+            
+                <a href="../part1/1_2.html">
+            
+                    
+                    1.2 面向对象变成的主要概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../part1/1_3.html">
+            
+                <a href="../part1/1_3.html">
+            
+                    
+                    1.3 面向对象的设计原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../part1/1_4.html">
+            
+                <a href="../part1/1_4.html">
+            
+                    
+                    1.4 设计模式的概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../part1/1_5.html">
+            
+                <a href="../part1/1_5.html">
+            
+                    
+                    1.5 动态语言的设计模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../part1/1_6.html">
+            
+                <a href="../part1/1_6.html">
+            
+                    
+                    1.6 模式的分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../part1/1_7.html">
+            
+                <a href="../part1/1_7.html">
+            
+                    
+                    1.7 小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../part2/">
+            
+                <a href="../part2/">
+            
+                    
+                    第2章 单例设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../part2/2_1.html">
+            
+                <a href="../part2/2_1.html">
+            
+                    
+                    2.1 理解单例设计模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../part2/2_2.html">
+            
+                <a href="../part2/2_2.html">
+            
+                    
+                    2.2 单例模式中的懒汉式实例化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../part2/2_3.html">
+            
+                <a href="../part2/2_3.html">
+            
+                    
+                    2.3 模块级别的单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../part2/2_4.html">
+            
+                <a href="../part2/2_4.html">
+            
+                    
+                    2.4 Monostate单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../part2/2_5.html">
+            
+                <a href="../part2/2_5.html">
+            
+                    
+                    2.5 单例和元类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../part2/2_6.html">
+            
+                <a href="../part2/2_6.html">
+            
+                    
+                    2.6 单例模式1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../part2/2_7.html">
+            
+                <a href="../part2/2_7.html">
+            
+                    
+                    2.7 单例模式2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../part2/2_8.html">
+            
+                <a href="../part2/2_8.html">
+            
+                    
+                    2.8 单例模式的缺点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../part2/2_9.html">
+            
+                <a href="../part2/2_9.html">
+            
+                    
+                    2.9 小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../part3/">
+            
+                <a href="../part3/">
+            
+                    
+                    第3章 工厂模式：建立创建对象的工厂
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../part3/3_1.html">
+            
+                <a href="../part3/3_1.html">
+            
+                    
+                    3.1 了解工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../part3/3_2.html">
+            
+                <a href="../part3/3_2.html">
+            
+                    
+                    3.2 简单工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../part3/3_3.html">
+            
+                <a href="../part3/3_3.html">
+            
+                    
+                    3.3 工厂方法模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../part3/3_4.html">
+            
+                <a href="../part3/3_4.html">
+            
+                    
+                    3.4 抽象工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../part3/3_5.html">
+            
+                <a href="../part3/3_5.html">
+            
+                    
+                    3.5 工厂方法与抽象工厂方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../part3/3_6.html">
+            
+                <a href="../part3/3_6.html">
+            
+                    
+                    3.6 小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../part4/">
+            
+                <a href="../part4/">
+            
+                    
+                    第4章 门面模式：与门面相适
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../part4/4_1.html">
+            
+                <a href="../part4/4_1.html">
+            
+                    
+                    4.1 理解结构型设计模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../part4/4_2.html">
+            
+                <a href="../part4/4_2.html">
+            
+                    
+                    4.2 理解门面设计模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../part4/4_3.html">
+            
+                <a href="../part4/4_3.html">
+            
+                    
+                    4.3 UML类图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../part4/4_4.html">
+            
+                <a href="../part4/4_4.html">
+            
+                    
+                    4.4 在现实世界中实现门面模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../part4/4_5.html">
+            
+                <a href="../part4/4_5.html">
+            
+                    
+                    4.5 最少知识原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../part4/4_6.html">
+            
+                <a href="../part4/4_6.html">
+            
+                    
+                    4.6 常见问答
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../part4/4_7.html">
+            
+                <a href="../part4/4_7.html">
+            
+                    
+                    4.7 小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../part5/">
+            
+                <a href="../part5/">
+            
+                    
+                    第5章 代理模式：控制对象的访问
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../part5/5_1.html">
+            
+                <a href="../part5/5_1.html">
+            
+                    
+                    5.1 理解代理设计模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../part5/5_2.html">
+            
+                <a href="../part5/5_2.html">
+            
+                    
+                    5.2 代理模式的UML类图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../part5/5_3.html">
+            
+                <a href="../part5/5_3.html">
+            
+                    
+                    5.3 了解不同类型的代理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../part5/5_4.html">
+            
+                <a href="../part5/5_4.html">
+            
+                    
+                    5.4 现实世界中的代理模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../part5/5_5.html">
+            
+                <a href="../part5/5_5.html">
+            
+                    
+                    5.5 代理模式的优点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../part5/5_6.html">
+            
+                <a href="../part5/5_6.html">
+            
+                    
+                    5.6 门面模式和代理模式之间的比较
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../part5/5_7.html">
+            
+                <a href="../part5/5_7.html">
+            
+                    
+                    5.7 常见问答
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../part5/5_8.html">
+            
+                <a href="../part5/5_8.html">
+            
+                    
+                    5.8 小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../part6/">
+            
+                <a href="../part6/">
+            
+                    
+                    第6章 观察者模式：了解对象的情况
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../part6/6_1.html">
+            
+                <a href="../part6/6_1.html">
+            
+                    
+                    6.1 行为型模式简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../part6/6_2.html">
+            
+                <a href="../part6/6_2.html">
+            
+                    
+                    6.2 理解观察者设计模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../part6/6_3.html">
+            
+                <a href="../part6/6_3.html">
+            
+                    
+                    6.3 现实世界中的观察者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../part6/6_4.html">
+            
+                <a href="../part6/6_4.html">
+            
+                    
+                    6.4 观察者模式的通知方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../part6/6_5.html">
+            
+                <a href="../part6/6_5.html">
+            
+                    
+                    6.5 松耦合与观察者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../part6/6_6.html">
+            
+                <a href="../part6/6_6.html">
+            
+                    
+                    6.6 观察者模式：优点和缺点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../part6/6_7.html">
+            
+                <a href="../part6/6_7.html">
+            
+                    
+                    6.7 常见问答
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../part6/6_8.html">
+            
+                <a href="../part6/6_8.html">
+            
+                    
+                    6.8 小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../part7/">
+            
+                <a href="../part7/">
+            
+                    
+                    第7章 命令模式：封装调用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../part7/7_1.html">
+            
+                <a href="../part7/7_1.html">
+            
+                    
+                    7.1 命令设计模式简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../part7/7_2.html">
+            
+                <a href="../part7/7_2.html">
+            
+                    
+                    7.2 了解命令设计模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../part7/7_3.html">
+            
+                <a href="../part7/7_3.html">
+            
+                    
+                    7.3 实现现实世界中命令模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../part7/7_4.html">
+            
+                <a href="../part7/7_4.html">
+            
+                    
+                    7.4 命令模式的优缺点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../part7/7_5.html">
+            
+                <a href="../part7/7_5.html">
+            
+                    
+                    7.5 常见问答
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../part7/7_6.html">
+            
+                <a href="../part7/7_6.html">
+            
+                    
+                    7.6 小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../part8/">
+            
+                <a href="../part8/">
+            
+                    
+                    第8章 模板方法模式：封装算法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../part8/8_1.html">
+            
+                <a href="../part8/8_1.html">
+            
+                    
+                    8.1 定义模板方法模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../part8/8_2.html">
+            
+                <a href="../part8/8_2.html">
+            
+                    
+                    8.2 现实世界中的模板方法模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../part8/8_3.html">
+            
+                <a href="../part8/8_3.html">
+            
+                    
+                    8.3 模板方法模式——钩子
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../part8/8_4.html">
+            
+                <a href="../part8/8_4.html">
+            
+                    
+                    8.4 好莱坞原则与模板法则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../part8/8_5.html">
+            
+                <a href="../part8/8_5.html">
+            
+                    
+                    8.5 模板方法模式的优点和缺点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../part8/8_6.html">
+            
+                <a href="../part8/8_6.html">
+            
+                    
+                    8.6 常见问答
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../part8/8_7.html">
+            
+                <a href="../part8/8_7.html">
+            
+                    
+                    8.7 小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    第9章 模型-视图-控制器——复合模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="9_1.html">
+            
+                <a href="9_1.html">
+            
+                    
+                    9.1 复合模式简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="9_2.html">
+            
+                <a href="9_2.html">
+            
+                    
+                    9.2 模型-视图-控制器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="9_3.html">
+            
+                <a href="9_3.html">
+            
+                    
+                    9.3 MVC设计模式的UML图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.10.4" data-path="9_4.html">
+            
+                <a href="9_4.html">
+            
+                    
+                    9.4 现实世界中的MVC模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="9_5.html">
+            
+                <a href="9_5.html">
+            
+                    
+                    9.5 常见问答
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="9_6.html">
+            
+                <a href="9_6.html">
+            
+                    
+                    9.6 小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >9.4 现实世界中的MVC模式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#94-&#x73B0;&#x5B9E;&#x4E16;&#x754C;&#x4E2D;&#x7684;mvc&#x6A21;&#x5F0F;"><b></b>9.4 &#x73B0;&#x5B9E;&#x4E16;&#x754C;&#x4E2D;&#x7684;MVC&#x6A21;&#x5F0F;</a></li><ul><li><span class="title-icon "></span><a href="#942-mvc&#x6A21;&#x5F0F;&#x7684;&#x4F18;&#x70B9;"><b></b>9.4.2 MVC&#x6A21;&#x5F0F;&#x7684;&#x4F18;&#x70B9;</a></li></ul></ul></div><a href="#94-&#x73B0;&#x5B9E;&#x4E16;&#x754C;&#x4E2D;&#x7684;mvc&#x6A21;&#x5F0F;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="94-&#x73B0;&#x5B9E;&#x4E16;&#x754C;&#x4E2D;&#x7684;mvc&#x6A21;&#x5F0F;"><a name="94-&#x73B0;&#x5B9E;&#x4E16;&#x754C;&#x4E2D;&#x7684;mvc&#x6A21;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#94-&#x73B0;&#x5B9E;&#x4E16;&#x754C;&#x4E2D;&#x7684;mvc&#x6A21;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="94-&#x73B0;&#x5B9E;&#x4E16;&#x754C;&#x4E2D;&#x7684;mvc&#x6A21;&#x5F0F;" class="plugin-anchor" href="#94-&#x73B0;&#x5B9E;&#x4E16;&#x754C;&#x4E2D;&#x7684;mvc&#x6A21;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>9.4 &#x73B0;&#x5B9E;&#x4E16;&#x754C;&#x4E2D;&#x7684;MVC&#x6A21;&#x5F0F;</h1>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x6211;&#x4EEC;&#x4ECE;&#x524D;&#x7684;<code>Web</code>&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6846;&#x67B6;&#x4E5F;&#x662F;&#x57FA;&#x4E8E;<code>MVC</code>&#x7684;&#x4F18;&#x79C0;&#x7406;&#x5FF5;&#x7684;&#x3002;&#x4EE5;<code>Django</code>&#x6216;<code>Rails(Ruby)</code>&#x4E3A;&#x4F8B;&#xFF1A;&#x5B83;&#x4EEC;&#x90FD;&#x662F;&#x4EE5;&#x6A21;&#x5F0F;-&#x89C6;&#x56FE;-&#x63A7;&#x5236;&#x5668;&#x6765;&#x6784;&#x9020;&#x9879;&#x76EE;&#xFF0C;&#x53EA;&#x662F;&#x5F62;&#x5F0F;&#x4E3A;&#x6A21;&#x578B;&#x3001;&#x6A21;&#x677F;&#x3001;&#x89C6;&#x56FE;&#xFF08;<code>Model-Template-View&#xFF0C;MTV</code>&#xFF09;&#xFF0C;&#x5176;&#x4E2D;&#x6A21;&#x578B;&#x662F;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x6A21;&#x677F;&#x662F;&#x89C6;&#x56FE;&#xFF0C;&#x63A7;&#x5236;&#x5668;&#x662F;&#x89C6;&#x56FE;/&#x8DEF;&#x7531;&#x3002;&#x4E3E;&#x4F8B;&#x6765;&#x8BF4;&#xFF0C;&#x5047;&#x8BBE;&#x8981;&#x7528;<code>Tornado Web</code>&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6846;&#x67B6;&#xFF08;<code>http://www.tornadoweb.org/en/stable/</code>&#xFF09;&#x6765;&#x5F00;&#x53D1;&#x4E00;&#x4E2A;&#x5355;&#x9875;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;&#x8FD9;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7528;&#x4E8E;&#x7BA1;&#x7406;&#x7528;&#x6237;&#x7684;&#x5404;&#x79CD;&#x4EFB;&#x52A1;&#xFF0C;&#x540C;&#x65F6;&#x7528;&#x6237;&#x8FD8;&#x5177;&#x6709;&#x6DFB;&#x52A0;&#x4EFB;&#x52A1;&#x3001;&#x66F4;&#x65B0;&#x4EFB;&#x52A1;&#x548C;&#x5220;&#x9664;&#x4EFB;&#x52A1;&#x6743;&#x9650;&#x3002;</p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x8BA9;&#x6211;&#x4EEC;&#x6765;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;&#x8BBE;&#x8BA1;&#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;</p>
+<ul>
+<li>&#x8BA9;&#x6211;&#x4EEC;&#x5148;&#x4ECE;&#x63A7;&#x5236;&#x5668;&#x5F00;&#x59CB;&#x3002;&#x5728; <code>Tornado</code>&#x4E2D;&#xFF0C;&#x63A7;&#x5236;&#x5668;&#x88AB;&#x5B9A;&#x4E49;&#x4E3A;&#x89C6;&#x56FE;/&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8DEF;&#x7531;&#x3002;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x591A;&#x4E2A;&#x89C6;&#x56FE;&#xFF0C;&#x4F8B;&#x5982;&#x5217;&#x51FA;&#x4EFB;&#x52A1;&#x3001;&#x521B;&#x5EFA;&#x65B0;&#x4EFB;&#x52A1;&#x3001;&#x5173;&#x95ED;&#x4EFB;&#x52A1;&#xFF0C;&#x4EE5;&#x53CA;&#x5728;&#x65E0;&#x6CD5;&#x5904;&#x7406;&#x8BF7;&#x6C42;&#x65F6;&#x7684;&#x64CD;&#x4F5C;&#xFF1B;</li>
+<li>&#x6211;&#x4EEC;&#x8FD8;&#x5E94;&#x8BE5;&#x5B9A;&#x4E49;&#x6A21;&#x578B;&#xFF0C;&#x5373;&#x5217;&#x51FA;&#x3001;&#x521B;&#x5EFA;&#x6216;&#x5220;&#x9664;&#x4EFB;&#x52A1;&#x7684;&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;&#xFF1B;</li>
+<li>&#x6700;&#x540E;&#xFF0C;&#x89C6;&#x56FE;&#x7531;<code>Tornado</code>&#x4E2D;&#x7684;&#x6A21;&#x677F;&#x663E;&#x793A;&#x3002;&#x5BF9;&#x4E8E;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6765;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x6A21;&#x677F;&#x6765;&#x663E;&#x793A;&#x3001;&#x521B;&#x5EFA;&#x6216;&#x5220;&#x9664;&#x4EFB;&#x52A1;&#xFF0C;&#x4EE5;&#x53CA;&#x53E6;&#x4E00;&#x4E2A;&#x6A21;&#x677F;&#x7528;&#x4E8E;&#x6CA1;&#x6709;&#x627E;&#x5230; URL&#x65F6;&#x7684;&#x60C5;&#x5F62;&#x3002;</li>
+</ul>
+<blockquote>
+<p>9.4.1 &#x6A21;&#x5757;</p>
+</blockquote>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x6211;&#x4EEC;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x9700;&#x8981;&#x7528;&#x5230;&#x4E00;&#x4E0B;&#x6A21;&#x5757;&#xFF1A;</p>
+<ul>
+<li><code>Tornado==4.3</code></li>
+<li><code>SQLite3==2.6.0</code></li>
+</ul>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x9996;&#x5148;&#xFF0C;&#x5728;&#x6211;&#x4EEC;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x5BFC;&#x5165;&#x76F8;&#x5E94;&#x7684;Python&#x6A21;&#x5757;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> tornado
+<span class="hljs-keyword">import</span> tornado.web
+<span class="hljs-keyword">import</span> tornado.ioloop
+<span class="hljs-keyword">import</span> tornado.httpserver
+<span class="hljs-keyword">import</span> sqlite3
+</code></pre>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x63D0;&#x4F9B;&#x4E86;&#x6570;&#x636E;&#x5E93;&#x624D;&#x505A;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;<code>MVC</code>&#x4E2D;&#x7684;&#x6A21;&#x578B;&#x3002;&#x5728;<code>Tornado</code>&#x4E2D;&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;&#x662F;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x4E0B;&#x6267;&#x884C;&#x7684;&#x3002;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x6839;&#x636E;&#x7528;&#x6237;&#x518D;<code>Web</code>&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x8BF7;&#x6C42;&#x7684;&#x8DEF;&#x7531;&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x6267;&#x884C;&#x64CD;&#x4F5C;&#x3002;&#x5728;&#x8FD9;&#x91CC;&#x8BA8;&#x8BBA;&#x7684;&#x662F;&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#x521B;&#x5EFA;&#x7684;4&#x4E2A;&#x7A0B;&#x5E8F;&#x3002;</p>
+<ul>
+<li><code>IndexHandler</code>&#xFF1A;&#x8FD4;&#x56DE;&#x5B58;&#x50A8;&#x5728;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x4EFB;&#x52A1;&#x3002;&#x5B83;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x4E0E;&#x5173;&#x952E;&#x4EBA;&#x7269;&#x6709;&#x5173;&#x7684;&#x5B57;&#x5178;&#x3002;&#x5B83;&#x6267;&#x884C;<code>SELECT</code>&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;&#x6765;&#x83B7;&#x53D6;&#x8FD9;&#x4E9B;&#x4EFB;&#x52A1;&#xFF1B;</li>
+<li><code>NewHandler</code>&#xFF1A;&#x987E;&#x540D;&#x601D;&#x4E49;&#xFF0C;&#x5B83;&#x5BF9;&#x6DFB;&#x52A0;&#x65B0;&#x4EFB;&#x52A1;&#x5F88;&#x6709;&#x7528;&#x3002;&#x5B83;&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x4E00;&#x4E2A;<code>POST</code>&#x8C03;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x4EFB;&#x52A1;&#xFF0C;&#x5E76;&#x5728;&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;&#x6765;&#x83B7;&#x53D6;&#x8FD9;&#x4E9B;&#x4EFB;&#x52A1;&#xFF1B;</li>
+<li><code>UpdateHandler</code>&#xFF1A;&#x5728;&#x5C06;&#x4EFB;&#x52A1;&#x6807;&#x8BB0;&#x4E3A;&#x5B8C;&#x6210;&#x6216;&#x91CD;&#x65B0;&#x6253;&#x5F00;&#x7ED9;&#x5B9A;&#x4EFB;&#x52A1;&#x65F6;&#x975E;&#x5E38;&#x6709;&#x7528;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5C06;&#x6267;&#x884C;<code>UPDATE</code>&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;&#xFF0C;&#x5C06;&#x4EFB;&#x52A1;&#x7684;&#x72B6;&#x6001;&#x7F6E;&#x4F4D;<code>open/closed</code>&#xFF1B;</li>
+<li><code>DeleteHandler</code>&#xFF1A;&#x8FD9;&#x5C06;&#x4ECE;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x5220;&#x9664;&#x6307;&#x5B9A;&#x7684;&#x4EFB;&#x52A1;&#x3002;&#x4E00;&#x65E6;&#x5220;&#x9664;&#xFF0C;&#x4EFB;&#x52A1;&#x5C06;&#x4F1A;&#x4ECE;&#x4EFB;&#x52A1;&#x5217;&#x8868;&#x4E2D;&#x6D88;&#x5931;&#x3002;</li>
+</ul>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x6211;&#x4EEC;&#x8FD8;&#x5F00;&#x53D1;&#x4E86;&#x4E00;&#x4E2A;<code>_execute()</code>&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x4EE5;<code>SQLite</code>&#x67E5;&#x8BE2;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#x5E76;&#x6267;&#x884C;&#x6240;&#x9700;&#x7684;&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;&#x3002;<code>_execute()</code>&#x65B9;&#x6CD5;&#x5BF9;<code>SQLite DB</code>&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<ul>
+<li>&#x521B;&#x5EFA;<code>SQLite DB</code>&#x8FDE;&#x63A5;&#xFF1B;</li>
+<li>&#x83B7;&#x53D6;&#x6E38;&#x6807;&#x5BF9;&#x8C61;&#xFF1B;</li>
+<li>&#x4F7F;&#x7528;&#x6E38;&#x6807;&#x5BF9;&#x8C61;&#x6267;&#x884C;&#x4E8B;&#x52A1;&#xFF1B;</li>
+<li>&#x63D0;&#x4EA4;&#x67E5;&#x8BE2;&#xFF1B;</li>
+<li>&#x5173;&#x95ED;&#x8FDE;&#x63A5;&#x3002;</li>
+</ul>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x770B;Python&#x5B9E;&#x73B0;&#x4E2D;&#x7684;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_execute</span><span class="hljs-params">(query)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot; Method to run query on sqlite db &quot;&quot;&quot;</span>
+    db_path = <span class="hljs-string">&apos;db.db&apos;</span>
+    connection = sqlite3.connect(db_path)
+    cursor_obj = connection.cursor()
+    <span class="hljs-keyword">try</span>:
+        cursor_obj.execute(query)
+        result = cursor_obj.fetchall()
+        connection.commit()
+    <span class="hljs-keyword">except</span> Exception:
+        <span class="hljs-keyword">raise</span>
+    connection.close()
+    <span class="hljs-keyword">return</span> result
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IndexHandler</span><span class="hljs-params">(tornado.web.RequestHandler)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot; Home Page &quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(self)</span>:</span>
+        query = <span class="hljs-string">&quot;select * from task&quot;</span>
+        todos = _execute(query)
+        self.render(<span class="hljs-string">&apos;index.html&apos;</span>, todos=todos)
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NewHandler</span><span class="hljs-params">(tornado.web.RequestHandler)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot; Add a task to teh task list &quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post</span><span class="hljs-params">(self)</span>:</span>
+        name = self.get_argument(<span class="hljs-string">&apos;name&apos;</span>, <span class="hljs-keyword">None</span>)
+        query = <span class="hljs-string">&quot;create table if not exists task (id INTEGER PRIMARY KEY, name TEXT, status NUMERIC) &quot;</span>
+        _execute(query)
+        query = <span class="hljs-string">&quot;insert into task (name, status) values (&apos;%s&apos;, %d) &quot;</span> % (name, <span class="hljs-number">1</span>)
+        _execute(query)
+        self.redirect(<span class="hljs-string">&apos;/&apos;</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(self)</span>:</span>
+        self.render(<span class="hljs-string">&apos;new.html&apos;</span>)
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UpdateHandler</span><span class="hljs-params">(tornado.web.RequestHandler)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot; Update status of the task to Open/Closed&quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(self, id, status)</span>:</span>
+        query = <span class="hljs-string">&quot;update task set status=%d where id=%s&quot;</span> %(int(status), id)
+        _execute(query)
+        self.redirect(<span class="hljs-string">&apos;/&apos;</span>)
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DeleteHandler</span><span class="hljs-params">(tornado.web.RequestHandler)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot; Delete task from task list &quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(self, id)</span>:</span>
+        query = <span class="hljs-string">&quot;delete from task where id=%s&quot;</span> % id
+        _execute(query)
+        self.redirect(<span class="hljs-string">&apos;/&apos;</span>)
+</code></pre>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x5F53;&#x8003;&#x5BDF;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x4F60;&#x4F1A;&#x6CE8;&#x610F;&#x5230;&#x4E00;&#x4E9B;&#x540D;&#x4E3A;<code>self.render()</code>&#x7684;&#x4E1C;&#x897F;&#x3002;</p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x8FD9;&#x57FA;&#x672C;&#x4E0A;&#x5C31;&#x662F;MVC&#x4E2D;&#x7684;&#x89C6;&#x56FE;&#xFF08;<code>Tornado</code>&#x6846;&#x67B6;&#x4E2D;&#x7684;&#x6A21;&#x677F;&#xFF09;&#x3002;</p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x6211;&#x4EEC;&#x6709;3&#x4E2A;&#x4E3B;&#x8981;&#x6A21;&#x677F;&#x3002;</p>
+<ul>
+<li><code>index.html</code>&#xFF1A;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x5217;&#x51FA;&#x6240;&#x6709;&#x4EFB;&#x52A1;&#x7684;&#x6A21;&#x677F;&#xFF1B;</li>
+<li><code>new.html</code>&#xFF1A;&#x8FD9;&#x662F;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x65B0;&#x4EFB;&#x52A1;&#x7684;&#x89C6;&#x56FE;&#xFF1B;</li>
+<li><code>base.html</code>&#xFF1A;&#x8FD9;&#x662F;&#x7EE7;&#x627F;&#x5176;&#x4ED6;&#x6A21;&#x677F;&#x7684;&#x57FA;&#x672C;&#x6A21;&#x677F;&#x3002;</li>
+</ul>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x53C2;&#x8003;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
+<p>base.html</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-meta">&lt;!DOCTYPE&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        {% block header %}{% end %}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        {% block body %}{% end %}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p>index.html</p>
+<pre><code class="lang-html">{% extends &apos;base.html&apos; %}
+<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>ToDo<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+{% block body %}
+    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Your Tasks<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">border</span>=<span class="hljs-string">&quot;1&quot;</span> &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">align</span>=<span class="hljs-string">&quot;center&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Id<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Status<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Update<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Delete<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    {% for todo in todos %}
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">align</span>=<span class="hljs-string">&quot;center&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>{{todo[0]}}<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>{{todo[1]}}<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            {% if todo[2] %}
+                <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Open<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            {% else %}
+                <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Closed<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            {% end %}
+            {% if todo[2] %}
+                <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/todo/update/{{todo[0]}}/status/0&quot;</span>&gt;</span>Close Task<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            {% else %}
+                <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/todo/update/{{todo[0]}}/status/1&quot;</span>&gt;</span>Open Task<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            {% end %}
+            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/todo/delete/{{todo[0]}}&quot;</span>&gt;</span>X<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    {% end %}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/todo/new&quot;</span>&gt;</span>Add Task<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+{% end %}
+</code></pre>
+<p>new.html</p>
+<pre><code class="lang-html">{% extends &apos;base.html&apos; %}
+<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>ToDo<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+{% block body %}
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Add Task to your List<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/todo/new&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;new&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Enter task&quot;</span>/&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;add&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+{% end %}
+</code></pre>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x5728;<code>Tornado</code>&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x6709;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8DEF;&#x7531;&#xFF0C;&#x5B83;&#x4EEC;&#x76F8;&#x5F53;&#x4E8E;MVC&#x4E2D;&#x7684;&#x63A7;&#x5236;&#x5668;&#x3002;</p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x5728;&#x8FD9;&#x4E2A;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x6709;4&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8DEF;&#x7531;&#x3002;</p>
+<ul>
+<li><code>/</code>&#xFF1A;&#x8FD9;&#x7528;&#x4E8E;&#x5217;&#x51FA;&#x6240;&#x6709;&#x4EFB;&#x52A1;&#x7684;&#x8DEF;&#x7531;&#xFF1B;</li>
+<li><code>/todo/new</code>&#xFF1A;&#x8FD9;&#x662F;&#x521B;&#x5EFA;&#x65B0;&#x4EFB;&#x52A1;&#x7684;&#x8DEF;&#x7531;&#xFF1B;</li>
+<li><code>/todo/update</code>&#xFF1A;&#x8FD9;&#x662F;&#x5C06;&#x4EFB;&#x52A1;&#x72B6;&#x6001;&#x66F4;&#x65B0;&#x4E3A;&#x6253;&#x5F00;&#x6216;&#x5173;&#x95ED;&#x7684;&#x8DEF;&#x7531;&#xFF1B;</li>
+<li><code>/todo/delete</code>&#xFF1A;&#x8FD9;&#x662F;&#x5220;&#x9664;&#x5DF2;&#x5B8C;&#x6210;&#x4EFB;&#x52A1;&#x7684;&#x8DEF;&#x7531;&#x3002;</li>
+</ul>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RunApp</span><span class="hljs-params">(tornado.web.Application)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot; Configuration to run the App &quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        Handlers = [
+            (<span class="hljs-string">r&apos;/&apos;</span>, IndexHandler),
+            (<span class="hljs-string">r&apos;/todo/new&apos;</span>, NewHandler),
+            (<span class="hljs-string">r&apos;/todo/update/(\d+)/status/(\d+)&apos;</span>, UpdateHandler),
+            (<span class="hljs-string">r&apos;/todo/delete/(\d+)&apos;</span>, DeleteHandler),
+        ]
+        settings = dict(
+            debug=<span class="hljs-keyword">True</span>,
+            template_path=<span class="hljs-string">&apos;templates&apos;</span>,
+            static_path=<span class="hljs-string">&quot;static&quot;</span>,
+        )
+        tornado.web.Application.__init__(self, Handlers, **settings)
+</code></pre>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x6211;&#x4EEC;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8BBE;&#x7F6E;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x542F;&#x52A8;HTTP Web&#x670D;&#x52A1;&#x5668;&#x6765;&#x8FD0;&#x884C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    http_server = tornado.httpserver.HTTPServer(RunApp())
+    http_server.listen(<span class="hljs-number">5000</span>, <span class="hljs-string">&apos;127.0.0.1&apos;</span>)
+    tornado.ioloop.IOLoop.instance().start()
+</code></pre>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x5F53;&#x6211;&#x4EEC;&#x8FD0;&#x884C;&#x8FD9;&#x4E2A;Python&#x7A0B;&#x5E8F;&#x65F6;&#xFF1A;</p>
+<ol>
+<li>&#x670D;&#x52A1;&#x5668;&#x5C06;&#x542F;&#x52A8;&#xFF0C;&#x5E76;&#x5728;&#x7AEF;&#x53E3;5000&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x9002;&#x5F53;&#x7684;&#x89C6;&#x56FE;&#x3001;&#x6A21;&#x677F;&#x548C;&#x63A7;&#x5236;&#x5668;&#x5DF2;&#x7ECF;&#x914D;&#x7F6E;&#x597D;&#x4E86;&#xFF1B;</li>
+<li>&#x6D4F;&#x89C8;http:// localhost:5000 /&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4EFB;&#x52A1;&#x5217;&#x8868;&#x3002;</li>
+</ol>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x56FE;9-5&#x663E;&#x793A;&#x4E86;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x7684;&#x8F93;&#x51FA;&#x5185;&#x5BB9;&#x3002;</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="../source/images/part9/9-5.png">
+    <br>
+    <div style="color:orange; border-bottom: 0px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 5px;">&#x56FE; 9-5</div>
+</center>
+
+<ol>
+<li>&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x65B0;&#x4EFB;&#x52A1;&#x3002;&#x4E00;&#x65E6;&#x4F60;&#x70B9;&#x51FB;ADD&#x6309;&#x94AE;&#xFF0C;&#x5C31;&#x4F1A;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x4EFB;&#x52A1;&#x3002;&#x5728;&#x4EE5;&#x4E0B;&#x5C4F;&#x5E55;&#x622A;&#x56FE;&#x4E2D;&#xFF0C;&#x6DFB;&#x52A0;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x4EFB;&#x52A1;&#x201C;Write the New Chapter&#x201D;&#xFF0C;&#x5E76;&#x663E;&#x793A;&#x5728;&#x4EFB;&#x52A1;&#x5217;&#x8868;&#x4E2D;&#xFF0C;&#x5982;&#x56FE;9-6&#x6240;&#x793A;&#x3002;</li>
+</ol>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="../source/images/part9/9-6.png">
+    <br>
+    <div style="color:orange; border-bottom: 0px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 5px;">&#x56FE; 9-6</div>
+</center>
+
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x5F53;&#x6211;&#x4EEC;&#x8F93;&#x5165;&#x65B0;&#x4EFB;&#x52A1;&#x5E76;&#x5355;&#x51FB;ADD&#x6309;&#x94AE;&#x65F6;&#xFF0C;&#x4EFB;&#x52A1;&#x5C06;&#x6DFB;&#x52A0;&#x5230;&#x73B0;&#x6709;&#x4EFB;&#x52A1;&#x5217;&#x8868;&#x4E2D;&#xFF0C;&#x5982;&#x56FE;9-7&#x6240;&#x793A;&#x3002;</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="../source/images/part9/9-7.png">
+    <br>
+    <div style="color:orange; border-bottom: 0px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 5px;">&#x56FE; 9-7</div>
+</center>
+
+<ol>
+<li>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5173;&#x95ED;UI&#x7684;&#x4EFB;&#x52A1;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x6211;&#x4EEC;&#x66F4;&#x65B0;Cook food &#x4EFB;&#x52A1;&#xFF0C;&#x90A3;&#x4E48;&#x5217;&#x8868;&#x4E5F;&#x4F1A;&#x66F4;&#x65B0;&#x3002;&#x5982;&#x679C;&#x613F;&#x610F;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x91CD;&#x65B0;&#x6253;&#x5F00;&#x4EFB;&#x52A1;&#xFF0C;&#x5982;&#x56FE;9-8&#x6240;&#x793A;&#x3002;</li>
+</ol>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="../source/images/part9/9-8.png">
+    <br>
+    <div style="color:orange; border-bottom: 0px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 5px;">&#x56FE; 9-8</div>
+</center>
+
+<ol>
+<li>&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x5220;&#x9664;&#x4EFB;&#x52A1;&#x3002;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x6211;&#x4EEC;&#x5220;&#x9664;&#x7B2C;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#x2014;&#x2014;New Task&#xFF0C;&#x8FD9;&#x65F6;&#x4EFB;&#x52A1;&#x5217;&#x8868;&#x5C31;&#x4F1A;&#x8FDB;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x66F4;&#x65B0;&#x4EE5;&#x5220;&#x9664;&#x8BE5;&#x4EFB;&#x52A1;&#xFF0C;&#x5982;&#x56FE;9-9&#x6240;&#x793A;&#x3002;</li>
+</ol>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="../source/images/part9/9-9.png">
+    <br>
+    <div style="color:orange; border-bottom: 0px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 5px;">&#x56FE; 9-9</div>
+</center>
+
+<blockquote>
+<h2 id="942-mvc&#x6A21;&#x5F0F;&#x7684;&#x4F18;&#x70B9;"><a name="942-mvc&#x6A21;&#x5F0F;&#x7684;&#x4F18;&#x70B9;" class="anchor-navigation-ex-anchor" href="#942-mvc&#x6A21;&#x5F0F;&#x7684;&#x4F18;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="942-mvc&#x6A21;&#x5F0F;&#x7684;&#x4F18;&#x70B9;" class="plugin-anchor" href="#942-mvc&#x6A21;&#x5F0F;&#x7684;&#x4F18;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>9.4.2 MVC&#x6A21;&#x5F0F;&#x7684;&#x4F18;&#x70B9;</h2>
+</blockquote>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x4EE5;&#x4E0B;&#x662F;MVC&#x6A21;&#x5F0F;&#x7684;&#x4F18;&#x70B9;&#x3002;</p>
+<ul>
+<li>&#x4F7F;&#x7528;MVC&#xFF0C;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x53EF;&#x4EE5;&#x5C06;&#x8F6F;&#x4EF6;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5206;&#x4E3A;3&#x4E2A;&#x4E3B;&#x8981;&#x90E8;&#x5206;&#xFF1A;&#x6A21;&#x578B;&#x3001;&#x89C6;&#x56FE;&#x548C;&#x63A7;&#x5236;&#x5668;&#x3002;&#x8FD9;&#x6709;&#x52A9;&#x4E8E;&#x63D0;&#x9AD8;&#x53EF;&#x7EF4;&#x62A4;&#x6027;&#xFF0C;&#x5F3A;&#x5236;&#x677E;&#x8026;&#x5408;&#xFF0C;&#x5E76;&#x964D;&#x4F4E;&#x590D;&#x6742;&#x6027;&#xFF1B;</li>
+<li>MVC&#x5141;&#x8BB8;&#x5BF9;&#x524D;&#x7AEF;&#x8FDB;&#x884C;&#x72EC;&#x7ACB;&#x66F4;&#x6539;&#xFF0C;&#x800C;&#x5BF9;&#x540E;&#x7AEF;&#x903B;&#x8F91;&#x65E0;&#x9700;&#x4EFB;&#x4F55;&#x4FEE;&#x6539;&#x6216;&#x53EA;&#x9700;&#x8FDB;&#x884C;&#x5F88;&#x5C11;&#x7684;&#x66F4;&#x6539;&#xFF0C;&#x56E0;&#x6B64;&#x5F00;&#x53D1;&#x5DE5;&#x4F5C;&#x4ECD;&#x53EF;&#x4EE5;&#x72EC;&#x7ACB;&#x8FD0;&#x884C;&#xFF1B;</li>
+<li>&#x7C7B;&#x4F3C;&#x5730;&#xFF0C;&#x53EF;&#x4EE5;&#x66F4;&#x6539;&#x6A21;&#x578B;&#x6216;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#xFF0C;&#x800C;&#x65E0;&#x9700;&#x5BF9;&#x89C6;&#x56FE;&#x8FDB;&#x884C;&#x4EFB;&#x4F55;&#x66F4;&#x6539;&#xFF1B;</li>
+<li>&#x6B64;&#x5916;&#xFF0C;&#x53EF;&#x4EE5;&#x66F4;&#x6539;&#x63A7;&#x5236;&#x5668;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x5BF9;&#x89C6;&#x56FE;&#x6216;&#x6A21;&#x578B;&#x9020;&#x6210;&#x4EFB;&#x4F55;&#x5F71;&#x54CD;&#xFF1B;</li>
+<li>MVC&#x8FD8;&#x6709;&#x52A9;&#x4E8E;&#x62DB;&#x8058;&#x5177;&#x6709;&#x7279;&#x5B9A;&#x80FD;&#x529B;&#x7684;&#x4EBA;&#x5458;&#xFF0C;&#x4F8B;&#x5982;&#x5E73;&#x53F0;&#x5DE5;&#x7A0B;&#x5E08;&#x548C;UI&#x5DE5;&#x7A0B;&#x5E08;&#xFF0C;&#x4ED6;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x81EA;&#x5DF1;&#x7684;&#x4E13;&#x4E1A;&#x9886;&#x57DF;&#x72EC;&#x7ACB;&#x5DE5;&#x4F5C;&#x3002;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="9_3.html" class="navigation navigation-prev " aria-label="Previous page: 9.3 MVC设计模式的UML图">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="9_5.html" class="navigation navigation-next " aria-label="Next page: 9.5 常见问答">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"9.4 现实世界中的MVC模式","level":"1.10.4","depth":2,"next":{"title":"9.5 常见问答","level":"1.10.5","depth":2,"path":"part9/9_5.md","ref":"part9/9_5.md","articles":[]},"previous":{"title":"9.3 MVC设计模式的UML图","level":"1.10.3","depth":2,"path":"part9/9_3.md","ref":"part9/9_3.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","sharing-plus","anchor-navigation-ex","favicon"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/xianyuemeng/learningPythonDesignPatternsMxy"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{"shortcut":"/source/images/favicon.jpg","bookmark":"/source/images/favicon.jpg","appleTouch":"/source/images/apple-touch-icon.jpg","appleTouchMore":{"120x120":"/source/images/apple-touch-icon.jpg","180x180":"/source/images/apple-touch-icon.jpg"}},"github-buttons":{"buttons":[{"user":"xianyuemeng","repo":"learningPythonDesignPatternsMxy","type":"star","size":"small","count":true}]},"expandable-chapters-small":{},"sharing":{"qq":true,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"MXY","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"MXY's Python Design Patterns Note","language":"zh-hans","links":{"sidebar":{"gitbug地址":"https://github.com/xianyuemeng/learningPythonDesignPatternsMxy"}},"gitbook":"3.2.3","description":"select * from learn"},"file":{"path":"part9/9_4.md","mtime":"2020-03-31T14:45:56.323Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-31T14:48:35.310Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
